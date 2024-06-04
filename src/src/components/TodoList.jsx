@@ -9,6 +9,7 @@ export default function TodoList() {
     ]);
 
     const hadndleAdd = (item) => setTodos([...todos, item]);
+    const handleUpdate = (updated) => setTodos();
 
     return (
         <section>
@@ -16,7 +17,7 @@ export default function TodoList() {
 
             <ul>
                 {todos.map((item) => (
-                    <Todo key={item.id} todo={item} />                    
+                    <Todo key={item.id} todo={item} onUpdate={handleUpdate} />
                 ))}
             </ul>
 
