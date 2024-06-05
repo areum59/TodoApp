@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import AddTodo from "./AddTodo";
 import Todo from "./Todo";
+import { FaCheck } from "react-icons/fa6";
 
-export default function TodoList() {
+export default function TodoList({ filter }) {
     const [todos, setTodos] = useState([
         { id: 123, text: "노동하기", status: "active" },
         { id: 456, text: "공부하기", status: "active" },
     ]);
+
+    const filtered = getFilteredItems(todos, filter);
 
     const hadndleAdd = (item) => setTodos([...todos, item]);
 
@@ -16,12 +19,16 @@ export default function TodoList() {
 
     const handleDelete = (deleted) => setTodos(todos.filter((t) => t.id !== deleted.id));
 
+    const handleClearAll = () => {
+        setTodos(todos.filter((t) => t.status !== "complete"));
+    };
+
     return (
         <section>
             <AddTodo onAdd={hadndleAdd} />
 
             <ul>
-                {todos.map((item) => (
+                {filtered.map((item) => (
                     <Todo
                         key={item.id}
                         todo={item}
@@ -31,7 +38,17 @@ export default function TodoList() {
                 ))}
             </ul>
 
-            <button type="button">완료 항목 삭제</button>
+            <button type="button" onClick={handleClearAll}>
+                <FaCheck />
+                &ensp;완료 항목 삭제
+            </button>
         </section>
     );
+}
+
+function getFilteredItems(todos, filter) {
+    if (filter === "all") {
+        return todos;
+    }
+    return todos.filter((todo) => todo.status === filter);
 }

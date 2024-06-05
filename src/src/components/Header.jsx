@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
 
-export default function Header() {
+export default function Header({ filters, filter, onFilterChange }) {
     return (
         <header>
-            <ul className='btn-group'>
-                <li><button type='button'>all</button></li>
-                <li><button type='button'>active</button></li>
-                <li><button type='button'>compleate</button></li>
+            <ul className="btn-group">
+                {filters.map((value, idx) => (
+                    <li key={idx}>
+                        <button type="button" onClick={() => onFilterChange(value)}>
+                            {value}
+                        </button>
+                    </li>
+                ))}
             </ul>
 
             {/* <div className="app-title">

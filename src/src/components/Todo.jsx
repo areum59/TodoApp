@@ -5,7 +5,7 @@ export default function Todo({ todo, onUpdate, onDelete }) {
     const { text, status } = todo;
 
     const handleChange = (e) => {
-        const status = e.target.checked ? "completed" : "active";
+        const status = e.target.checked ? "complete" : "active";
         onUpdate({ ...todo, status });
     };
 
@@ -17,7 +17,7 @@ export default function Todo({ todo, onUpdate, onDelete }) {
                 type="checkbox"
                 name=""
                 id="checkbox"
-                checked={status === "completed"}
+                checked={status === "complete"}
                 onChange={handleChange}
             />
             <label htmlFor="checkbox">{text}</label>
