@@ -1,15 +1,33 @@
-import React from 'react';
+import React from "react";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
-export default function Todo({todo, onUpdate, onDelete}) {
-    const {text, status} = todo;
+export default function Todo({ todo, onUpdate, onDelete }) {
+    const { text, status } = todo;
+
+    const handleChange = (e) => {
+        const status = e.target.checked ? "completed" : "active";
+        onUpdate({ ...todo, status });
+    };
+
+    const handleDelete = () => onDelete(todo);
 
     return (
         <li>
-            <input type="checkbox" name="" id="checkbox" value={status} />
+            <input
+                type="checkbox"
+                name=""
+                id="checkbox"
+                checked={status === "completed"}
+                onChange={handleChange}
+            />
             <label htmlFor="checkbox">{text}</label>
 
-            <button type='button'>수정</button>
-            <button type='button'>삭제</button>
+            <button type="button">
+                <FaEdit />
+            </button>
+            <button type="button" onClick={handleDelete}>
+                <FaTrashAlt />
+            </button>
         </li>
     );
 }
