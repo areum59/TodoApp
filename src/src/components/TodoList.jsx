@@ -33,7 +33,7 @@ export default function TodoList({ filter }) {
         <section>
             <AddTodo onAdd={hadndleAdd} />
 
-            <ul>
+            <ul className="todo-list">
                 {filtered.map((item) => (
                     <Todo
                         key={item.id}
@@ -45,7 +45,7 @@ export default function TodoList({ filter }) {
                 ))}
             </ul>
 
-            <button type="button" onClick={handleClearAll}>
+            <button type="button" onClick={handleClearAll} className="clear-all">
                 <FaCheck />
                 &ensp;완료 항목 삭제
             </button>

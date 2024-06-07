@@ -28,17 +28,17 @@ export default function Todo({ todo, onUpdate, onDelete, onEdit }) {
     const handleCancelEdit = () => setIsEditing(false);
 
     return (
-        <li>
+        <li className="todo-item">
             {isEditing ? (
-                <>
+                <div className="inp-group">
                     <input
                         type="text"
                         value={editText}
                         onChange={(e) => setEditText(e.target.value)}
                     />
-                </>
+                </div>
             ) : (
-                <>
+                <div className="inp-group">
                     <input
                         type="checkbox"
                         name=""
@@ -47,27 +47,27 @@ export default function Todo({ todo, onUpdate, onDelete, onEdit }) {
                         onChange={handleChange}
                     />
                     <label htmlFor="checkbox">{text}</label>
-                </>
+                </div>
             )}
 
             {isEditing ? (
-                <>
+                <div className="btn-group">
                     <button type="button" onClick={handleSave}>
                         확인
                     </button>
                     <button type="button" onClick={handleCancelEdit}>
                         취소
                     </button>
-                </>
+                </div>
             ) : (
-                <>
+                <div className="btn-group">
                     <button type="button" onClick={handleOpenEdit}>
                         <FaEdit />
                     </button>
                     <button type="button" onClick={handleDelete}>
                         <FaTrashAlt />
                     </button>
-                </>
+                </div>
             )}
         </li>
     );
