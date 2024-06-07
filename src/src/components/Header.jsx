@@ -13,15 +13,19 @@ export default function Header({ filters, filter, onFilterChange }) {
                 ))}
             </ul>
 
-            {/* <div className="app-title">
+            <div className="app-title">
                 <h1>ToDo List</h1>
 
                 <ul className="today">
-                    <li><strong>Tuesday</strong></li>
-                    <li>June <span>6</span>,</li>
+                    <li>
+                        <strong>Tuesday</strong>
+                    </li>
+                    <li>
+                        June <span>6</span>,
+                    </li>
                     <li>2024</li>
                 </ul>
-            </div> */}
+            </div>
         </header>
     );
 }

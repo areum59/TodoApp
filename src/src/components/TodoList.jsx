@@ -12,6 +12,12 @@ export default function TodoList({ filter }) {
     const filtered = getFilteredItems(todos, filter);
 
     const hadndleAdd = (item) => setTodos([...todos, item]);
+    const handleEdit = (edit) => {
+        setTodos(todos.map((t) => (t.id === edit.id ? { ...t, text: edit.text } : t)));
+        if (!edit) {
+            return;
+        }
+    };
 
     const handleUpdate = (updated) => {
         setTodos(todos.map((t) => (t.id === updated.id ? updated : t)));
@@ -32,6 +38,7 @@ export default function TodoList({ filter }) {
                     <Todo
                         key={item.id}
                         todo={item}
+                        onEdit={handleEdit}
                         onUpdate={handleUpdate}
                         onDelete={handleDelete}
                     />
