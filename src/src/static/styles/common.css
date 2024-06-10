@@ -36,6 +36,7 @@ input[type="checkbox"] {
 input:focus {
     outline: none;
 }
+
 input::placeholder {
     color: var(--gray);
 }
@@ -158,19 +159,46 @@ section {
 }
 
 .todo-item {
-    border: 1px solid red;
     line-height: 36px;
     display: flex;
 }
 
 .todo-item .inp-group {
-    border: 1px solid blue;
-    width: 85%;
+    width: 82%;
+}
+
+.todo-item .inp-group input {
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.todo-item .inp-group input[type="text"] {
+    width: 100%;
+    height: 30px;
+    border: 1px solid var(--lgray);
+}
+
+.todo-item .inp-group label {
+    font-size: 1rem;
+    color: var(--dark);
+    cursor: pointer;
 }
 
 .todo-item .btn-group {
-    width: 15%;
+    width: 17%;
     text-align: right;
+}
+
+.todo-item .btn-group button {
+    width: 30px;
+    height: 30px;
+    background-color: #999;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.todo-item .btn-group button:last-child {
+    margin-left: 6px;
 }
 
 .clear-all {

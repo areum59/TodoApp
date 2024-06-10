@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import { IoMdCheckmark, IoMdClose } from "react-icons/io";
 
 export default function Todo({ todo, onUpdate, onDelete, onEdit }) {
     const { text, status } = todo;
@@ -53,10 +54,10 @@ export default function Todo({ todo, onUpdate, onDelete, onEdit }) {
             {isEditing ? (
                 <div className="btn-group">
                     <button type="button" onClick={handleSave}>
-                        확인
+                        <IoMdCheckmark />
                     </button>
                     <button type="button" onClick={handleCancelEdit}>
-                        취소
+                        <IoMdClose />
                     </button>
                 </div>
             ) : (
